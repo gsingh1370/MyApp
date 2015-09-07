@@ -23,7 +23,7 @@ import { Introduction } from "comps/main/Introduction";
 @View({
     directives: [NgFor, AppNavigationBar, WelcomeBanner, NgIf, Introduction],
     template: `
-        <app-navigation-bar (change-view-event)="changeView(item)"></app-navigation-bar>
+        <app-navigation-bar (change-view-event)="changeView($event)"></app-navigation-bar>
         <welcome-banner *ng-if="currentView=='welcome'"></welcome-banner>
         <angular-intro *ng-if="currentView =='intro'" ></angular-intro>
         <!--<a *ng-for="#name of names"
@@ -40,6 +40,7 @@ class LearnAngular {
         this.currentView = 'intro';
     }
     changeView(name):void {
+        this.currentView = name;
         console.log("Main Change view name is " + name);
     }
     /*names:Array<string>;

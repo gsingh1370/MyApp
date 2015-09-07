@@ -18,6 +18,7 @@ let LearnAngular = class {
         this.currentView = 'intro';
     }
     changeView(name) {
+        this.currentView = name;
         console.log("Main Change view name is " + name);
     }
 };
@@ -28,7 +29,7 @@ LearnAngular = __decorate([
     View({
         directives: [NgFor, AppNavigationBar, WelcomeBanner, NgIf, Introduction],
         template: `
-        <app-navigation-bar (change-view-event)="changeView(item)"></app-navigation-bar>
+        <app-navigation-bar (change-view-event)="changeView($event)"></app-navigation-bar>
         <welcome-banner *ng-if="currentView=='welcome'"></welcome-banner>
         <angular-intro *ng-if="currentView =='intro'" ></angular-intro>
         <!--<a *ng-for="#name of names"
