@@ -9,29 +9,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-import { Component, View, NgFor, bootstrap } from "angular2/angular2";
+import { Component, View, NgFor, NgIf, bootstrap } from "angular2/angular2";
 import { AppNavigationBar } from "comps/navigation/AppNavigationBar";
-let HelloWorld = class {
+import { WelcomeBanner } from "comps/main/WelcomeBanner";
+import { Introduction } from "comps/main/Introduction";
+let LearnAngular = class {
     constructor() {
-        this.names = ['Gurpreet', 'Richard'];
+        this.currentView = 'intro';
     }
-    buttonClicked(name) {
-        console.log("Button Clicked " + name);
+    changeView(name) {
+        console.log("Main Change view name is " + name);
     }
 };
-HelloWorld = __decorate([
+LearnAngular = __decorate([
     Component({
-        selector: 'hello-world'
+        selector: 'angular-learning-app'
     }),
     View({
-        directives: [NgFor, AppNavigationBar],
+        directives: [NgFor, AppNavigationBar, WelcomeBanner, NgIf, Introduction],
         template: `
-        <app-navigation-bar></app-navigation-bar>
-        <a *ng-for="#name of names"
+        <app-navigation-bar (change-view-event)="changeView(item)"></app-navigation-bar>
+        <welcome-banner *ng-if="currentView=='welcome'"></welcome-banner>
+        <angular-intro *ng-if="currentView =='intro'" ></angular-intro>
+        <!--<a *ng-for="#name of names"
         class="btn btn-primary"
-        (click)="buttonClicked(name)">{{name}}</a>
+        (click)="buttonClicked(name)">{{name}}</a>-->
     `
     })
-], HelloWorld);
-bootstrap(HelloWorld);
+], LearnAngular);
+bootstrap(LearnAngular);
 //# sourceMappingURL=app.js.map

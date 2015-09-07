@@ -9,32 +9,46 @@ import
     Component,
     View,
     NgFor,
+    NgIf,
     bootstrap,
 } from "angular2/angular2";
 
 import { AppNavigationBar } from "comps/navigation/AppNavigationBar";
+import { WelcomeBanner } from "comps/main/WelcomeBanner";
+import { Introduction } from "comps/main/Introduction";
 
 @Component({
-    selector: 'hello-world'
+    selector: 'angular-learning-app'
 })
 @View({
-    directives: [NgFor, AppNavigationBar],
+    directives: [NgFor, AppNavigationBar, WelcomeBanner, NgIf, Introduction],
     template: `
-        <app-navigation-bar></app-navigation-bar>
-        <a *ng-for="#name of names"
+        <app-navigation-bar (change-view-event)="changeView(item)"></app-navigation-bar>
+        <welcome-banner *ng-if="currentView=='welcome'"></welcome-banner>
+        <angular-intro *ng-if="currentView =='intro'" ></angular-intro>
+        <!--<a *ng-for="#name of names"
         class="btn btn-primary"
-        (click)="buttonClicked(name)">{{name}}</a>
+        (click)="buttonClicked(name)">{{name}}</a>-->
     `
 
 })
-class HelloWorld {
-    names:Array<string>;
+class LearnAngular {
+
+    currentView:String;
+
+    constructor() {
+        this.currentView = 'intro';
+    }
+    changeView(name):void {
+        console.log("Main Change view name is " + name);
+    }
+    /*names:Array<string>;
     constructor() {
         this.names = ['Gurpreet', 'Richard'];
     }
     buttonClicked(name) {
         console.log("Button Clicked " + name);
-    }
+    }*/
 }
 
-bootstrap(HelloWorld);
+bootstrap(LearnAngular);

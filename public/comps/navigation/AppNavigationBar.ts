@@ -6,20 +6,44 @@
 import
 {
     Component,
+    EventEmitter,
     View,
 } from "angular2/angular2";
 
 @Component({
-    selector: 'app-navigation-bar'
+    selector: 'app-navigation-bar',
+    events:['changeViewEvent']
+
 })
 @View({
     template: `
-    <nav class="navbar"><a>Intro</a></nav>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Angular 2</a>
+        </div>
+        <div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Introduction</a></li>
+            <li><a href="#" (click)="onNavClick('views')">Views</a></li>
+            <li><a href="#" (click)="onNavClick('components')">Components</a></li>
+            <li><a href="#" (click)="onNavClick('typeScript')">Type Script</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     `
 })
 export  class AppNavigationBar {
-    name:String;
+    changeViewEvent:EventEmitter;
+
     constructor() {
-        this.name = 'Gurpreet';
+        this.changeViewEvent = new EventEmitter();
+    }
+
+    onNavClick(item):void {
+        let a = 0;
+        console.log("item click = " + item + a);
+        this.changeViewEvent.next(item);
     }
 }
