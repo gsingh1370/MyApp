@@ -9,20 +9,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-/// <reference path="../node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>
-var angular2_1 = require("angular2/angular2");
-var HelloWorld = (function () {
-    function HelloWorld() {
+import { Component, View, NgFor, bootstrap } from "angular2/angular2";
+import { AppNavigationBar } from "comps/navigation/AppNavigationBar";
+let HelloWorld = class {
+    constructor() {
+        this.names = ['Gurpreet', 'Richard'];
     }
-    HelloWorld = __decorate([
-        angular2_1.Component({
-            selector: 'hello-world'
-        }),
-        angular2_1.View({
-            template: "<div>Hello Gurpreet</div>"
-        })
-    ], HelloWorld);
-    return HelloWorld;
-})();
-angular2_1.bootstrap(HelloWorld);
+    buttonClicked(name) {
+        console.log("Button Clicked " + name);
+    }
+};
+HelloWorld = __decorate([
+    Component({
+        selector: 'hello-world'
+    }),
+    View({
+        directives: [NgFor, AppNavigationBar],
+        template: `
+        <app-navigation-bar></app-navigation-bar>
+        <a *ng-for="#name of names"
+        class="btn btn-primary"
+        (click)="buttonClicked(name)">{{name}}</a>
+    `
+    })
+], HelloWorld);
+bootstrap(HelloWorld);
 //# sourceMappingURL=app.js.map

@@ -8,17 +8,33 @@ import
 {
     Component,
     View,
+    NgFor,
     bootstrap,
 } from "angular2/angular2";
+
+import { AppNavigationBar } from "comps/navigation/AppNavigationBar";
 
 @Component({
     selector: 'hello-world'
 })
 @View({
-    template: `<div>Hello Gurpreet</div>`
+    directives: [NgFor, AppNavigationBar],
+    template: `
+        <app-navigation-bar></app-navigation-bar>
+        <a *ng-for="#name of names"
+        class="btn btn-primary"
+        (click)="buttonClicked(name)">{{name}}</a>
+    `
+
 })
 class HelloWorld {
-
+    names:Array<string>;
+    constructor() {
+        this.names = ['Gurpreet', 'Richard'];
+    }
+    buttonClicked(name) {
+        console.log("Button Clicked " + name);
+    }
 }
 
 bootstrap(HelloWorld);
