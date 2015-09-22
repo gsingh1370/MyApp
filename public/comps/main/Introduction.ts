@@ -1,7 +1,7 @@
 /**
  * Created by Preet on 9/6/2015.
  */
-/// <reference path="../../../node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>
+/// <reference path="../../typings/angular2/angular2.d.ts"/>
 
 import
 {
@@ -38,7 +38,7 @@ import
     </div>
     <div class="col-md-10">
         <h2>Introduction</h2><br>
-        <p>Angular 2 is a emerging Web application development framework which is built using some best practices
+        <p>Angular 2 is a Web application development framework which is built using some best practices
         </p>
     </div>
   </div>

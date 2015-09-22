@@ -1,7 +1,7 @@
 /**
  * Created by Preet on 9/6/2015.
  */
-/// <reference path="../../../node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>
+/// <reference path="../../typings/angular2/angular2.d.ts"/>
 
 import
 {

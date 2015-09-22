@@ -1,8 +1,9 @@
 body {
     padding: 0px;
-    background-color: rgba(174, 167, 241, 0.29);
+    background-color: #121212;
     box-sizing: border-box;
     font-size: 16px;
+    color: #BAB5B9;
 }
 
 .navbar-inverse {
@@ -31,7 +32,7 @@ h2 {
 }
 
 p {
-    font-size: 22px;
+    font-size: 18px;
 }
 a {
  /* color: #00B7FF;*/
@@ -39,7 +40,7 @@ a {
 
 .navbar-header {
     position: relative;
-    top: -25px;
+    top: -30px;
     width: 300px;
 
 }
