@@ -10,7 +10,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var angular2_1 = require("angular2/angular2");
+var FeedbackForm_1 = require("./FeedbackForm");
 var Introduction = (function () {
     function Introduction() {
     }
@@ -19,10 +23,13 @@ var Introduction = (function () {
             selector: 'angular-intro'
         }),
         angular2_1.View({
-            template: "\n    <div class=\"container \">\n        <!--<div id=\"leftbar\">\n            <a href=\"#\"><h3>Introduction</h3></a><br>\n            <a href=\"#\"><h3>Features</h3></a><br>\n            <a href=\"#\"><h3>Components</h3></a><br>\n            <a href=\"#\"><h3>Views</h3></a><br>\n        </div>\n        <div id=\"content\">\n                <h2>Introduction</h2><br>\n                <p>Angular 2 is a emerging Web application development framework which is built using some best practices\n                </p>\n        </div>-->\n        <div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-2\">\n        <div id=\"leftbar\">\n            <a href=\"#\"><h5>Introduction</h5></a>\n            <a href=\"#\"><h5>Features</h5></a>\n            <a href=\"#\"><h5>What is Component?</h5></a>\n            <a href=\"#\"><h5>What is View?</h5></a>\n        </div>\n    </div>\n    <div class=\"col-md-10\">\n        <h2>Introduction</h2><br>\n        <p>Angular 2 is a Web application development framework which is built using some best practices\n        </p>\n    </div>\n  </div>\n</div>\n    </div>\n    "
-        })
+            directives: [FeedbackForm_1.FeedbackForm],
+            template: "\n<div class=\"container\">\n        <div class=\"container\">\n          <div class=\"row\">\n            <div class=\"col-md-2\">\n                <div id=\"leftbar\">\n                    <a href=\"#\"><h5>Introduction</h5></a>\n                    <a href=\"#\"><h5>Features</h5></a>\n                    <a href=\"#\"><h5>What is Component?</h5></a>\n                    <a href=\"#\"><h5>What is View?</h5></a>\n                </div>\n            </div>\n            <div class=\"col-md-10\">\n                <h2>Introduction</h2><br>\n                <p>Angular 2 is a Web application development framework which is built using some best practices\n                </p>\n                <feedback-form></feedback-form>\n            </div>\n          </div>\n        </div>\n        </div>\n    "
+        }), 
+        __metadata('design:paramtypes', [])
     ], Introduction);
     return Introduction;
 })();
 exports.Introduction = Introduction;
-//# sourceMappingURL=Introduction.js.map
+
+//# sourceMappingURL=../../comps/main/Introduction.js.map

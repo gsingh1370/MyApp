@@ -16,21 +16,21 @@ import
 import {FormBuilder,  ControlGroup, FORM_DIRECTIVES} from "angular2/angular2";
 
 
-import { AppNavigationBar } from "comps/navigation/AppNavigationBar";
-import { WelcomeBanner } from "comps/main/WelcomeBanner";
-import { Introduction } from "comps/main/Introduction";
-import { FeedbackForm } from "comps/main/FeedbackForm";
+import { AppNavigationBar } from "./comps/navigation/AppNavigationBar";
+import { WelcomeBanner } from "./comps/main/WelcomeBanner";
+import { Introduction } from "./comps/main/Introduction";
+
 
 @Component({
     selector: 'angular-learning-app'
 })
 @View({
-    directives: [NgFor, AppNavigationBar, WelcomeBanner, FeedbackForm, NgIf, Introduction],
+    directives: [NgFor, AppNavigationBar, WelcomeBanner, NgIf, Introduction],
     template: `
         <app-navigation-bar (change-view-event)="changeView($event)"></app-navigation-bar>
         <welcome-banner *ng-if="currentView=='welcome'"></welcome-banner>
         <angular-intro *ng-if="currentView =='intro'" ></angular-intro>
-        <feedback-form></feedback-form>
+
         <!--<a *ng-for="#name of names"
         class="btn btn-primary"
         (click)="buttonClicked(name)">{{name}}</a>-->

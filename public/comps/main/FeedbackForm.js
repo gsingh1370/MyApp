@@ -17,8 +17,7 @@ var angular2_1 = require("angular2/angular2");
 var angular2_2 = require('angular2/angular2');
 var FeedbackForm = (function () {
     function FeedbackForm(fb) {
-        this.myForm = fb.group({ "login": ['abc', angular2_2.Validators.required], "password": ['test'] });
-        // this.myForm.controls = { "sku" : ['abc']};
+        this.myForm = fb.group({ "name": ['', angular2_2.Validators.required], "comment": ['', angular2_2.Validators.required] });
         console.log("FeedbackForm constructor called");
     }
     FeedbackForm.prototype.onSubmit = function (value) {
@@ -34,11 +33,12 @@ var FeedbackForm = (function () {
         }),
         angular2_1.View({
             directives: [angular2_2.FORM_DIRECTIVES, angular2_1.NgIf],
-            template: "\n    <form #f=\"form\" (submit)='onLogIn(f.value)'>\n                   Login <input type='text' ng-control='login' #l=\"form\">\n                   <!--<div *ng-if=\"!l.valid\">Login is invalid</div>-->\n\n                   Password <input type='password' ng-control='password'>\n\n                   <button type='submit'>Log in!</button>\n                 </form>\n    "
+            template: "\n    <form #f=\"form\" (submit)='onSubmit(f.value)' role=\"form\">\n        <div class=\"form-group\">\n            <label for=\"name\">Name</label>\n            <input type='text' ng-control='name' #l=\"form\">\n\n        </div>\n                   <!--<div *ng-if=\"!l.valid\">Login is invalid</div>-->\n\n        <div class=\"form-group\">\n            <label for=\"name\">Comment</label>\n            <input type='text' ng-control='comment'>\n        </div>\n       <button type='submit' class=\"btn btn-default\">Log in!</button>\n     </form>\n    "
         }), 
         __metadata('design:paramtypes', [angular2_2.FormBuilder])
     ], FeedbackForm);
     return FeedbackForm;
 })();
 exports.FeedbackForm = FeedbackForm;
-//# sourceMappingURL=FeedbackForm.js.map
+
+//# sourceMappingURL=../../comps/main/FeedbackForm.js.map

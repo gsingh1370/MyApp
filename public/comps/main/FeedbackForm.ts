@@ -15,14 +15,20 @@ import {FormBuilder, Validators, FORM_DIRECTIVES, ControlGroup, Control} from 'a
 @View({
     directives: [FORM_DIRECTIVES, NgIf],
     template: `
-    <form #f="form" (submit)='onLogIn(f.value)'>
-                   Login <input type='text' ng-control='login' #l="form">
+    <form #f="form" (submit)='onSubmit(f.value)' role="form">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type='text' ng-control='name' #l="form">
+
+        </div>
                    <!--<div *ng-if="!l.valid">Login is invalid</div>-->
 
-                   Password <input type='password' ng-control='password'>
-
-                   <button type='submit'>Log in!</button>
-                 </form>
+        <div class="form-group">
+            <label for="name">Comment</label>
+            <input type='text' ng-control='comment'>
+        </div>
+       <button type='submit' class="btn btn-default">Log in!</button>
+     </form>
     `
 })
 export class FeedbackForm {
@@ -32,7 +38,7 @@ export class FeedbackForm {
     credentials:{login:string, password:string};
 
    constructor( fb: FormBuilder) {
-        this.myForm = fb.group( {"login": ['abc', Validators.required], "password": ['test']});
+        this.myForm = fb.group( {"name": ['', Validators.required], "comment": ['', Validators.required]});
        // this.myForm.controls = { "sku" : ['abc']};
         console.log("FeedbackForm constructor called");
     }

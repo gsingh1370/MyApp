@@ -9,7 +9,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-/// <reference path="../../../node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/// <reference path="../../typings/angular2/angular2.d.ts"/>
 var angular2_1 = require("angular2/angular2");
 var WelcomeBanner = (function () {
     function WelcomeBanner() {
@@ -20,9 +23,11 @@ var WelcomeBanner = (function () {
         }),
         angular2_1.View({
             template: "\n    <div class=\"container\">\n        <h1>Welcome to Angular 2 Learning Center</h1>\n    </div>\n    "
-        })
+        }), 
+        __metadata('design:paramtypes', [])
     ], WelcomeBanner);
     return WelcomeBanner;
 })();
 exports.WelcomeBanner = WelcomeBanner;
-//# sourceMappingURL=WelcomeBanner.js.map
+
+//# sourceMappingURL=../../comps/main/WelcomeBanner.js.map

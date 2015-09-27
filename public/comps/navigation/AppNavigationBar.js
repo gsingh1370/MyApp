@@ -42,4 +42,5 @@ var AppNavigationBar = (function () {
     return AppNavigationBar;
 })();
 exports.AppNavigationBar = AppNavigationBar;
-//# sourceMappingURL=AppNavigationBar.js.map
+
+//# sourceMappingURL=../../comps/navigation/AppNavigationBar.js.map
