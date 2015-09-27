@@ -34,7 +34,7 @@ var FeedbackForm = (function () {
         }),
         angular2_1.View({
             directives: [angular2_2.FORM_DIRECTIVES, angular2_1.NgIf],
-            template: "\n    <form #f=\"form\" (submit)='onLogIn(f.value)'>\n                   Login <input type='text' ng-control='login' #l=\"form\">\n                   <div *ng-if=\"!l.valid\">Login is invalid</div>\n\n                   Password <input type='password' ng-control='password'>\n\n                   <button type='submit'>Log in!</button>\n                 </form>\n    "
+            template: "\n    <form #f=\"form\" (submit)='onLogIn(f.value)'>\n                   Login <input type='text' ng-control='login' #l=\"form\">\n                   <!--<div *ng-if=\"!l.valid\">Login is invalid</div>-->\n\n                   Password <input type='password' ng-control='password'>\n\n                   <button type='submit'>Log in!</button>\n                 </form>\n    "
         }), 
         __metadata('design:paramtypes', [angular2_2.FormBuilder])
     ], FeedbackForm);
