@@ -10,6 +10,8 @@ import
     View,
 } from "angular2/angular2";
 
+import * as Rx from "rx";
+
 @Component({
     selector: 'app-navigation-bar',
     events:['changeViewEvent']

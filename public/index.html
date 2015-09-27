@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Angular 2</title>
-    <!--<script src="traceur/bin/traceur-runtime.js"></script>
-    <script src="systemjs/dist/system.js"></script>-->
-    <!--<script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-    <script src="https://jspm.io/system@0.16.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.35/angular2.dev.js"></script>-->
 
-    <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-    <script src="https://jspm.io/system@0.16.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.30/angular2.dev.js"></script>
+    <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.91/traceur-runtime.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
+    <script>
+        System.config({
+            defaultJSExtensions: true,
+            baseURL: '/',
+            paths: {
+                'app': '/app.js',
+                'components/*': 'components/*.js',
+                'services/*': 'services/*.js'
+            }
+        });
+    </script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.36/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.36/router.dev.js"></script>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>

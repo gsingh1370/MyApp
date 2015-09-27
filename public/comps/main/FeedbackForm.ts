@@ -4,18 +4,16 @@
 
 /// <reference path="../../typings/angular2/angular2.d.ts"/>
 
-import { Component, View, Inject } from "angular2/angular2";
+import { Component, View, Inject, NgIf, NgControl } from "angular2/angular2";
 
-import {FormBuilder,  ControlGroup, FORM_DIRECTIVES,} from "angular2/angular2";
-
-import * as Rx from "rx";
+import {FormBuilder, Validators, FORM_DIRECTIVES, ControlGroup, Control} from 'angular2/angular2';
 
 @Component({
     selector: 'feedback-form',
-//    viewBindings:[FormBuilder]
+    viewBindings:[FormBuilder]
 })
 @View({
-    directives: [FORM_DIRECTIVES],
+    directives: [FORM_DIRECTIVES, NgIf],
     template: `
     <form #f="form" (submit)='onLogIn(f.value)'>
                    Login <input type='text' ng-control='login' #l="form">
@@ -29,20 +27,20 @@ import * as Rx from "rx";
 })
 export class FeedbackForm {
 
-//    myForm:ControlGroup;
+    myForm:ControlGroup;
 
-  //  credentials:{login:string, password:string};
+    credentials:{login:string, password:string};
 
-/*    constructor(fb : FormBuilder ) {
-        this.myForm = fb.group({"sku": ['abc']});
-        // this.myForm.controls = { "sku" : ['abc']};
+   constructor( fb: FormBuilder) {
+        this.myForm = fb.group( {"login": ['abc', Validators.required], "password": ['test']});
+       // this.myForm.controls = { "sku" : ['abc']};
         console.log("FeedbackForm constructor called");
     }
 
     onSubmit(value) {
         console.log('you submitted value: ', value);
     }
-*/
+
     onLogIn(value) {
         console.log("LOgin");
     }

@@ -9,35 +9,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 /// <reference path="../../typings/angular2/angular2.d.ts"/>
 var angular2_1 = require("angular2/angular2");
-var angular2_2 = require("angular2/angular2");
+var angular2_2 = require('angular2/angular2');
 var FeedbackForm = (function () {
-    function FeedbackForm() {
+    function FeedbackForm(fb) {
+        this.myForm = fb.group({ "login": ['abc', angular2_2.Validators.required], "password": ['test'] });
+        // this.myForm.controls = { "sku" : ['abc']};
+        console.log("FeedbackForm constructor called");
     }
-    //    myForm:ControlGroup;
-    //  credentials:{login:string, password:string};
-    /*    constructor(fb : FormBuilder ) {
-            this.myForm = fb.group({"sku": ['abc']});
-            // this.myForm.controls = { "sku" : ['abc']};
-            console.log("FeedbackForm constructor called");
-        }
-    
-        onSubmit(value) {
-            console.log('you submitted value: ', value);
-        }
-    */
+    FeedbackForm.prototype.onSubmit = function (value) {
+        console.log('you submitted value: ', value);
+    };
     FeedbackForm.prototype.onLogIn = function (value) {
         console.log("LOgin");
     };
     FeedbackForm = __decorate([
         angular2_1.Component({
             selector: 'feedback-form',
+            viewBindings: [angular2_2.FormBuilder]
         }),
         angular2_1.View({
-            directives: [angular2_2.FORM_DIRECTIVES],
+            directives: [angular2_2.FORM_DIRECTIVES, angular2_1.NgIf],
             template: "\n    <form #f=\"form\" (submit)='onLogIn(f.value)'>\n                   Login <input type='text' ng-control='login' #l=\"form\">\n                   <div *ng-if=\"!l.valid\">Login is invalid</div>\n\n                   Password <input type='password' ng-control='password'>\n\n                   <button type='submit'>Log in!</button>\n                 </form>\n    "
-        })
+        }), 
+        __metadata('design:paramtypes', [angular2_2.FormBuilder])
     ], FeedbackForm);
     return FeedbackForm;
 })();
