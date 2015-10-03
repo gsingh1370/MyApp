@@ -14,9 +14,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 /// <reference path="typings/angular2/angular2.d.ts"/>
 var angular2_1 = require("angular2/angular2");
+var services_1 = require("./comps/services/services");
 var AppNavigationBar_1 = require("./comps/navigation/AppNavigationBar");
 var WelcomeBanner_1 = require("./comps/main/WelcomeBanner");
 var Introduction_1 = require("./comps/main/Introduction");
+var http_1 = require("angular2/http");
 var LearnAngular = (function () {
     function LearnAngular() {
         this.currentView = 'intro';
@@ -37,6 +39,6 @@ var LearnAngular = (function () {
     ], LearnAngular);
     return LearnAngular;
 })();
-angular2_1.bootstrap(LearnAngular);
+angular2_1.bootstrap(LearnAngular, [services_1.servicesInjectables, http_1.HTTP_BINDINGS]);
 
 //# sourceMappingURL=app.js.map

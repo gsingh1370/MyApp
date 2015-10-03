@@ -15,27 +15,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="../../typings/angular2/angular2.d.ts"/>
 var angular2_1 = require("angular2/angular2");
 var angular2_2 = require('angular2/angular2');
+var LoginService_1 = require("../services/LoginService");
 var FeedbackForm = (function () {
-    function FeedbackForm(fb) {
+    function FeedbackForm(fb, loginService) {
+        this.fb = fb;
+        this.loginService = loginService;
         this.myForm = fb.group({ "name": ['', angular2_2.Validators.required], "comment": ['', angular2_2.Validators.required] });
         console.log("FeedbackForm constructor called");
     }
+    FeedbackForm.prototype.onInit = function () {
+    };
     FeedbackForm.prototype.onSubmit = function (value) {
         console.log('you submitted value: ', value);
-    };
-    FeedbackForm.prototype.onLogIn = function (value) {
-        console.log("LOgin");
+        this.loginService.login(value);
     };
     FeedbackForm = __decorate([
         angular2_1.Component({
+            lifecycle: [angular2_1.LifecycleEvent.onInit],
             selector: 'feedback-form',
             viewBindings: [angular2_2.FormBuilder]
         }),
         angular2_1.View({
             directives: [angular2_2.FORM_DIRECTIVES, angular2_1.NgIf],
-            template: "\n    <form #f=\"form\" (submit)='onSubmit(f.value)' role=\"form\">\n        <div class=\"form-group\">\n            <label for=\"name\">Name</label>\n            <input type='text' ng-control='name' #l=\"form\">\n\n        </div>\n                   <!--<div *ng-if=\"!l.valid\">Login is invalid</div>-->\n\n        <div class=\"form-group\">\n            <label for=\"name\">Comment</label>\n            <input type='text' ng-control='comment'>\n        </div>\n       <button type='submit' class=\"btn btn-default\">Log in!</button>\n     </form>\n    "
+            template: "\n    <form #f=\"form\" (submit)='onSubmit(f.value)' role=\"form\" class=\"form-horizontal\">\n        <div class=\"form-group\">\n            <label for=\"name\" class=\"control-label col-sm-2\" >Name</label>\n            <div class=\"col-sm-4\">\n                <input type='text' ng-control='name' #l=\"form\" class=\"form-control\">\n            </div>\n\n        </div>\n                   <!--<div *ng-if=\"!l.valid\">Login is invalid</div>-->\n\n        <div class=\"form-group\">\n            <label for=\"name\" class=\"control-label col-sm-2\">Comment</label>\n            <div class=\"col-sm-4\">\n                <input type='text' ng-control='comment' class=\"form-control\">\n            </div>\n        </div>\n        <div class=\"col-sm-offset-2 col-sm-4\">\n            <button type='submit' class=\"btn btn-default\">Log in!</button>\n        </div>\n     </form>\n    "
         }), 
-        __metadata('design:paramtypes', [angular2_2.FormBuilder])
+        __metadata('design:paramtypes', [angular2_2.FormBuilder, LoginService_1.LoginService])
     ], FeedbackForm);
     return FeedbackForm;
 })();

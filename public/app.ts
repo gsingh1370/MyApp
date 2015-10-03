@@ -15,10 +15,13 @@ import
 
 import {FormBuilder,  ControlGroup, FORM_DIRECTIVES} from "angular2/angular2";
 
+import {servicesInjectables} from "./comps/services/services";
 
 import { AppNavigationBar } from "./comps/navigation/AppNavigationBar";
 import { WelcomeBanner } from "./comps/main/WelcomeBanner";
 import { Introduction } from "./comps/main/Introduction";
+
+import {HTTP_BINDINGS} from "angular2/http";
 
 
 @Component({
@@ -57,4 +60,4 @@ class LearnAngular {
     }*/
 }
 
-bootstrap(LearnAngular);
+bootstrap(LearnAngular, [servicesInjectables, HTTP_BINDINGS ]);

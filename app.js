@@ -27,6 +27,10 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use('/', routes);
 app.use('/users', users);
 
+app.get('/login', function(req, res) {
+  res.send({ loginStatus : "success"});
+});
+
 /*
 app.use( function( req, res, next ) {
   //....

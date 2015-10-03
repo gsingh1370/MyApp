@@ -2,6 +2,7 @@
     "version": "1.6.0",
     "compilerOptions": {
         "target": "es5",
+        "sourcemap" : true,
         "module": "commonjs",
         "declaration": false,
         "noImplicitAny": false,
